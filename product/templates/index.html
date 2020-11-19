@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Cake shop</title>
+  <meta charset="UTF-8">
+  <title>Cake shop</title>
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'product/index.css' %}">
 
-    <h1>Welcome to the world of cakes</h1>
+<header>
+  <img src="{% static 'product/KaroCake_logo.png' %}"/>
+</header>
 
+<section>
+  <nav>
+    <h2>Category</h2>
+    <ul>
+      {% for category in categories%}
+      <li><a href="#">{{ category }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+
+  <article>
     {% for product in products%}
-        <h2> {{ product }} </h2>
-        <p> {{ product.description }} </p>
-        <p> {{ product.price }} </p>
-<!--        <p><img src="{{ product.img.url }}"></p>-->
-    {% endfor %}
+    <div id="container">
+      <div class="floated">
+        <p><img class="floated" src="{{ product.img.url }}"/></p>
+      </div>
+      <h2> {{ product }} </h2>
+      <h3> {{ product.description }} </h3>
+      <h4> {{ product.price }} </h4>
+    </div>
+  {% endfor %}
+  </article>
+
+
+
+</section>
+
 
 </head>
 <body>

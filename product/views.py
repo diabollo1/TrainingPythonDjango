@@ -5,7 +5,8 @@ from .models import *
 
 def index(request):
     products = Product.objects.all()
-    data = {'products': products}
+    categories = Category.objects.all()
+    data = {'products': products, 'categories': categories}
     return render(request, 'index.html', data)
 
 
