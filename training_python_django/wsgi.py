@@ -1,5 +1,5 @@
 """
-WSGI config for training_cake_shop project.
+WSGI config for training_python_django project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'training_cake_shop.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'training_python_django.settings')
 
 application = get_wsgi_application()

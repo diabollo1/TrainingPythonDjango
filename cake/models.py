@@ -11,11 +11,11 @@ class Category(models.Model):
         return self.name
 
 
-class Product(models.Model):
+class Cake(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=12, decimal_places=2)
-    img = models.ImageField(upload_to="product", default="product/default_cake.png")
+    img = models.ImageField(upload_to="cake", default="cake/default_cake.png")
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 

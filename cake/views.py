@@ -4,7 +4,7 @@ from .models import *
 
 
 def index(request):
-    products = Product.objects.all()
+    products = Cake.objects.all()
     categories = Category.objects.all()
     data = {'products': products, 'categories': categories}
     return render(request, 'index.html', data)
@@ -16,7 +16,7 @@ def category(request, category_id):
 
 
 def product(request, product_id):
-    product_output = Product.objects.get(pk=product_id)
+    product_output = Cake.objects.get(pk=product_id)
     output = "<h1>" + str(product_output) + "</h1>" + \
              "<p>" + str(product_output.description) + "</p>" + \
              "<p>" + str(product_output.price) + "</p>" + \
