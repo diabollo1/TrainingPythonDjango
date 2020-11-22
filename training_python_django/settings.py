@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # my app
     'cake.apps.CakeConfig',
+    'website.apps.WebsiteConfig',
 ]
 
 MIDDLEWARE = [

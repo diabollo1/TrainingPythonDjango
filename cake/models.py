@@ -10,6 +10,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def posts_for_frontpage(self):
+        return self.cake.order_by('-id')[:6]
+
 
 class Cake(models.Model):
     name = models.CharField(max_length=100)
@@ -17,7 +21,8 @@ class Cake(models.Model):
     price = models.DecimalField(max_digits=12, decimal_places=2)
     img = models.ImageField(upload_to="cake", default="cake/default_cake.png")
 
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name='cake')
 
     def __str__(self):
         return self.name
+

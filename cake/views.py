@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import *
+from django.template import context
+
+from cake.models import *
 
 
 def index(request):
     products = Cake.objects.all()
     categories = Category.objects.all()
     data = {'products': products, 'categories': categories}
-    return render(request, 'index.html', data)
+    return render(request, 'cake_list.html', data)
 
 
 def category(request, category_id):
